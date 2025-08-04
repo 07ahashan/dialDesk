@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">dialDesk</string>
+    <string name="call">Call</string>
+    <string name="call_desc">Make a call</string>
+    <string name="contacts">Contacts</string>
+    <string name="voicemail">Voicemail</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="see_all">See All</string>
+    <string name="recent_calls">Recent Calls</string>
+    <string name="favorites">Favorites</string>
+    <string name="dialer">Dialer</string>
+    <string name="missed_calls">Missed Calls</string>
+    <string name="app_logo">DialDesk</string>
+    <string name="_3">3</string>
+    <string name="jane_doe">Jane Doe</string>
+    <string name="incoming">Incoming •</string>
+    <string name="yesterday_3_45_pm">Yesterday 3:45 PM</string>
+    <string name="_5_23">5:23</string>
+    <string name="search_contacts_or_numbers">Search contacts or numbers</string>
+    <string name="new_voicemail">New Voicemail</string>
+    <string name="dialdesk">DialDesk</string>
+    <string name="my_profile">My Profile</string>
+    <string name="enter_phone_number">Enter phone number</string>
+</resources>

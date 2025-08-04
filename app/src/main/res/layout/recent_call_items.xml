@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:padding="12dp">
+
+    <!-- Arrow Icon -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_call_type_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_incoming_call"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Caller Name -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_caller_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/jane_doe"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/_black"
+        app:layout_constraintStart_toEndOf="@id/iv_call_type_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_call_type_icon"
+        app:layout_constraintEnd_toStartOf="@id/tv_timeStamp" />
+
+    <!-- Time (right aligned) -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_timeStamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_5_23"
+        android:textSize="14sp"
+        android:textColor="@color/_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_caller_name" />
+
+    <!-- Call type & timestamp -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_call_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/incoming"
+        android:textSize="14sp"
+        android:textColor="@color/_black"
+        app:layout_constraintStart_toStartOf="@id/tv_caller_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_caller_name"
+        app:layout_constraintEnd_toStartOf="@id/tv_call_timestamp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_call_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yesterday_3_45_pm"
+        android:textSize="14sp"
+        android:textColor="@color/_black"
+        app:layout_constraintStart_toEndOf="@id/tv_call_types"
+        app:layout_constraintTop_toBottomOf="@id/tv_caller_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="_black">#FF000000</color>
+    <color name="_white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="light_blue">#C0E0FF</color>
+    <color name="red">#FF0000</color>
+    <color name="primaryColor">#3493E2</color>
+    <color name="secondaryColor">#A2ABAF</color>
+    <color name="callButton">#178A1B</color>
+</resources>
