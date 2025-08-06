@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!-- Number Display -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvNumber"
         android:layout_width="0dp"
@@ -19,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Dial Pad Grid -->
     <GridLayout
         android:id="@+id/dialPadGrid"
         android:layout_width="wrap_content"

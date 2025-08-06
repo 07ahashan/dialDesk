@@ -9,18 +9,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.appedu.dialdesk.R
 import com.appedu.dialdesk.databinding.ActivityHomeScreenBinding
+import com.google.android.material.button.MaterialButton
 
 
 class HomeScreenActivity : AppCompatActivity() {
 
-    private lateinit var _homeBinding :ActivityHomeScreenBinding
-    private var titleText :AppCompatTextView ?= null
-    private var phoneNumber:AppCompatTextView ?= null
+    private lateinit var _homeBinding: ActivityHomeScreenBinding
+    private var titleText: AppCompatTextView? = null
+    private var phoneNumber: AppCompatTextView? = null
+    private var lastDialedNumber: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,38 +36,46 @@ class HomeScreenActivity : AppCompatActivity() {
         titleText?.setText(R.string.dialdesk)
     }
 
-    private fun initVariables(){
+    private fun initVariables() {
         titleText = findViewById(R.id.tvScreenTitle)
         phoneNumber = findViewById(R.id.tvNumber)
     }
 
-    private fun initListeners(){
+    private fun initListeners() {
         _homeBinding.fabDial.setOnClickListener {
             showDialPadDialog()
         }
     }
 
-    private fun makeCall(){
-        val number = getTextFromTextView(phoneNumber!!)
+    private fun makeCall(number: String) {
         val intent = Intent(Intent.ACTION_CALL)
         intent.data = Uri.parse("tel:$number")
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CALL_PHONE
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
             startActivity(intent)
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), 1)
         }
-
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
-        permissions: Array<String?>?,
+        permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (requestCode == 1 && grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-           makeCall()
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            lastDialedNumber?.let { makeCall(it) }
         } else {
-            Toast.makeText(this, "Permission denied to make calls", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@HomeScreenActivity,
+                "Permission denied to make calls",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -75,11 +86,37 @@ class HomeScreenActivity : AppCompatActivity() {
             .setView(dialogView)
             .create()
 
+        val numberView = dialogView.findViewById<AppCompatTextView>(R.id.tvNumber)
+        val btnCall = dialogView.findViewById<AppCompatImageButton>(R.id.btnCall)
+
+        val numberButtons = listOf(
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
+        )
+
+        for (id in numberButtons) {
+            val btn = dialogView.findViewById<MaterialButton>(id)
+            btn.setOnClickListener {
+                numberView.text = numberView.text.toString() + btn.text.toString()
+            }
+        }
+
+        btnCall.setOnClickListener {
+            val number = numberView.text.toString()
+            if (number.isNotBlank()) {
+                lastDialedNumber = number
+                dialog.dismiss()
+                makeCall(number)
+            } else {
+                Toast.makeText(this, "Please enter a number", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         dialog.show()
     }
 
-    private fun getTextFromTextView(textView: AppCompatTextView): String {
-        return textView.text.toString()
-    }
 
+    private fun getTextFromTextView(textView: AppCompatTextView?): String {
+        return textView?.text?.toString()?.trim().orEmpty()
+    }
 }

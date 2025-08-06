@@ -9,14 +9,12 @@
     android:padding="12dp"
     tools:context=".ui.HomeScreenActivity">
 
-    <!-- Top Bar -->
     <include
         android:id="@+id/ll_app_toolbar"
         layout="@layout/app_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!-- Search Bar -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchBarLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -40,7 +38,6 @@
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Summary Cards Row -->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/summaryCardsRow"
         android:layout_width="0dp"
@@ -285,14 +282,14 @@
         app:layout_constraintTop_toBottomOf="@+id/recentCallsTitle" />
 
     <!-- Bottom Navigation Bar -->
-   <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/_white"
-        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/primaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

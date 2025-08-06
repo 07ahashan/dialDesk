@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <string name="app_name">dialDesk</string>
     <string name="call">Call</string>
@@ -21,4 +23,5 @@
     <string name="dialdesk">DialDesk</string>
     <string name="my_profile">My Profile</string>
     <string name="enter_phone_number">Enter phone number</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

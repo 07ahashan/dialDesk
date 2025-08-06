@@ -6,7 +6,6 @@
     android:background="@color/transparent"
     android:padding="12dp">
 
-    <!-- Arrow Icon -->
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_call_type_icon"
         android:layout_width="20dp"
@@ -15,7 +14,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Caller Name -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_caller_name"
         android:layout_width="0dp"
@@ -28,7 +26,6 @@
         app:layout_constraintTop_toTopOf="@id/iv_call_type_icon"
         app:layout_constraintEnd_toStartOf="@id/tv_timeStamp" />
 
-    <!-- Time (right aligned) -->
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_timeStamp"
         android:layout_width="wrap_content"
@@ -58,6 +55,7 @@
         android:text="@string/yesterday_3_45_pm"
         android:textSize="14sp"
         android:textColor="@color/_black"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@id/tv_call_types"
         app:layout_constraintTop_toBottomOf="@id/tv_caller_name" />
 
