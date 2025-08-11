@@ -15,6 +15,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_video_call"
+        android:icon="@drawable/ic_video_call"
+        android:title="@string/video_call"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_voicemail"
         android:icon="@drawable/ic_voice_mail"
         android:title="@string/voicemail"

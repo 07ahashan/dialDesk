@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.appedu.dialdesk"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -59,4 +59,7 @@ dependencies {
 
     // Lifecycle scope (for lifecycleScope in Activities/Fragments)
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+
+    //Video-call Zego-Cloud functionality
+    implementation("com.github.ZEGOCLOUD:zego_uikit_prebuilt_call_android:+")
 }

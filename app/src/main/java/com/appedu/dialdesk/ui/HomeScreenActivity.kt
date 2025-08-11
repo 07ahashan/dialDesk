@@ -45,6 +45,10 @@ class HomeScreenActivity : AppCompatActivity() {
         _homeBinding.fabDial.setOnClickListener {
             showDialPadDialog()
         }
+
+        _homeBinding.bottomNav.setOnClickListener {
+            startActivity(Intent(this@HomeScreenActivity, VideoCallActivity::class.java))
+        }
     }
 
     private fun makeCall(number: String) {
@@ -118,5 +122,13 @@ class HomeScreenActivity : AppCompatActivity() {
 
     private fun getTextFromTextView(textView: AppCompatTextView?): String {
         return textView?.text?.toString()?.trim().orEmpty()
+    }
+
+    private fun videoCall(){
+
+    }
+
+    private fun voiceCall(){
+
     }
 }

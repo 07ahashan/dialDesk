@@ -24,4 +24,6 @@
     <string name="my_profile">My Profile</string>
     <string name="enter_phone_number">Enter phone number</string>
     <string name="dashboard">Dashboard</string>
+    <string name="video_call">Video Call</string>
+    <string name="your_user_id">Your User ID: %1$s</string>
 </resources>
